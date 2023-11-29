@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Accordion - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion();
+  } );
+  </script>
+</head>
+<body>
+  <a class="enlace" href="index.html" style="color:black">INICIO</a>
+  <a class="enlace" href="pasatiempos.html" style="color:black">CALIDOS</a>
+  <a class="enlace" href="frios.html" style="color:black">FRIOS</a>
+  <a class="enlace" href="montañas.html" style="color:black">MONTAÑAS</a>
+  <a class="enlace" href="exoticos.html" style="color:black">EXOTICOS</a>
+  <br><br>
+  <h3 media="all">MONTAÑAS</h3>
+
+<div id="accordion">
+  <h3>Antisana</h3>
+  <div>
+    <img src="img/mon1.jpg" alt="Foto 1">
+    <p>
+      El glaciar más extenso del país se encuentra en el nevado Antisana a 5.704 msnm. El volcán de dos cumbres puede ser admirado desde la zona de Papallacta o también desde la laguna de la Mica, donde es posible realizar senderismo, ciclismo, camping o actividades de montaña donde los paisajes andinos serán parte de los atractivos.
+
+    </p>
+  </div>
+
+  <h3>Cotopaxi</h3>
+  <div>
+    <img src="img/mon2.jpg" alt="Foto 2">
+    <p>
+    es uno de los volcanes activos más altos del mundo y el segundo de mayor altura en Ecuador (5.897 msnm). Su cono sinérgico lo hace uno de los más bellos. En su planicie se encuentra el Parque Nacional Cotopaxi, un lugar ideal para disfrutar de la flora y fauna andina. El recorrido por sus faldas hacia el refugio José Rivas (4.864 msnm) o la visita a la Laguna de Limpiopungo, actualmente son algunas de las actividades favoritas de los turistas.
+    </p>
+  </div>
+  <h3>Los Ilinizas</h3>
+  <div>
+    <img src="img/mon3.jpg" alt="Foto 3">
+    <p>Es uno de los volcanes activos más altos del mundo y el segundo de mayor altura en Ecuador (5.897 msnm). Su cono sinérgico lo hace uno de los más bellos. En su planicie se encuentra el Parque Nacional Cotopaxi, un lugar ideal para disfrutar de la flora y fauna andina. El recorrido por sus faldas hacia el refugio José Rivas (4.864 msnm) o la visita a la Laguna de Limpiopungo, actualmente son algunas de las actividades favoritas de los turistas.</p>
+
+
+  <style media="screen">
+      .enlace {
+
+        border: 2px solid blue;
+        border-radius: 5px;
+        margin-right: 20px;
+        padding: 30px;
+
+        }
+        body
+        {
+
+          text-align: left;
+          background-image: url('img/frio.jpg');
+          background-size:cover;
+          color: black;
+          padding: 20px;
+          font-size: 20px;
+        }
+        .galeria {
+          margin-left: 100px;
+          margin-top: 500px;
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          grid-gap: 100px;
+          margin-top: 20px;
+          align-content: center;
+        }
+
+        .galeria img {
+
+          width: 100%;
+          height: auto;
+          border-radius: 10px;
+        }
+
+        <style media="screen">
+          .enlace {
+
+            border: 2px solid blue;
+            border-radius: 5px;
+            margin-right: 20px;
+            padding: 30px;
+
+          }
+          body
+          {
+            text-align: left;
+            background-image: url('img/mont.jpg');
+            background-size:cover;
+            color: white;
+            padding: 10px;
+          }
+
+
+        </style>
+
+
+
+
+</body>
+</html>

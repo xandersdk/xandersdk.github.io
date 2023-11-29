@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Sortable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+    #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+    #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; cursor: pointer; }
+    #sortable li span { position: absolute; margin-left: -1.3em; }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+    $(function () {
+      $("#sortable").sortable();
+      $("#sortable li").on("click", function () {
+        // Obtener el índice del elemento clicado
+        var index = $(this).index();
+
+        // Definir un array con las páginas correspondientes
+        var pages = ["index.html", "pasatiempos.html", "frios.html", "montañas.html", "exoticos.html"];
+
+        // Redireccionar a la página correspondiente
+        if (index < pages.length) {
+          window.location.href = pages[index];
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+<h1 id="titule-principal" >BIENVENIDOS A LA PAGINA WEB DE XANDER</h1>
+  <ul id="sortable">
+    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>INICIO</li>
+    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>CALIDOS</li>
+    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>FRIOS</li>
+    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>MONTAÑAS</li>
+    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>EXOTICOS</li>
+
+  </ul>
+  <style media="screen">
+  .enlace {
+    text-overflow: clip;
+      border: 2px solid blue;
+      border-radius: 5px;
+      margin-right: 20px;
+      padding: 30px;
+  }
+
+  body {
+
+      text-align: center;
+      background-image: url('img/fondo.jpg');
+      background-size: cover;
+      color: white;
+      padding: 100px;
+      display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Esto ayuda a centrar verticalmente en la página completa */
+    margin: 0; /* Elimina el margen predeterminado del cuerpo */
+  }
+  </style>
+  <script>
+  $(document).ready(function(){
+  // Efecto de desplazamiento suave
+  $(".nav-link").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+
+      var hash = this.hash;
+
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        window.location.hash = hash;
+      });
+    }
+  });
+
+  // Cambio de color al pasar el ratón
+  $(".nav-link").hover(
+    function() {
+      $(this).css("color", "yellow");
+    },
+    function() {
+      $(this).css("color", "red");
+    }
+  );
+  });
+  </script>
+
+</body>
+</html>

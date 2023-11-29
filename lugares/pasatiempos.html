@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Tabs - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+</head>
+<body>
+  <a class="enlace" href="index.html" style="color:black">INICIO</a>
+  <a class="enlace" href="pasatiempos.html" style="color:black">CALIDOS</a>
+  <a class="enlace" href="frios.html" style="color:black">FRIOS</a>
+  <a class="enlace" href="montañas.html" style="color:black">MONTAÑAS</a>
+  <a class="enlace" href="exoticos.html" style="color:black">EXOTICOS</a>
+  <br><br>
+  <h3>LUGARES CALIDOS</h3>
+
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Playa Flamenco, Puerto Rico</a></li>
+    <li><a href="#tabs-2">Cabo Polonio, Uruguay</a></li>
+    <li><a href="#tabs-3">Playa Manuel Antonio, Costa Rica</a></li>
+  </ul>
+  <div id="tabs-1">
+    <img src="img/descarga.jpeg" alt="Foto 1">
+    <p>Descripción: Situada en la isla de Culebra, Playa Flamenco es conocida por su arena suave y blanca, aguas cristalinas y ambiente tropical. Esta playa ofrece excelentes condiciones para nadar y practicar snorkel, con una gran diversidad de vida marina. Además, está rodeada de exuberante vegetación y colinas que añaden un toque pintoresco al paisaje.</p>
+  </div>
+  <div id="tabs-2">
+    <img src="img/calido2.jpg" alt="Foto 2">
+    <p>Descripción: Cabo Polonio es una playa única en la costa atlántica de Uruguay, conocida por su entorno natural y salvaje. Esta playa no tiene electricidad y está rodeada de dunas de arena, creando un ambiente sereno y alejado. La playa es ideal para aquellos que buscan un escape tranquilo, lejos de las comodidades modernas, y ofrece la oportunidad de avistar lobos marinos que habitan en la cercana Isla de Lobos. </p>
+  </div>
+  <div id="tabs-3">
+    <img src="img/calido3.jpg" alt="Foto 3">
+    <p>Descripción: Integrada en el Parque Nacional Manuel Antonio, esta playa combina la selva tropical con el océano Pacífico. Sus aguas tibias y oleaje moderado la hacen perfecta para nadar y practicar surf suave. La biodiversidad del parque ofrece la posibilidad de observar monos, perezosos y una variedad de aves mientras disfrutas del sol en la playa.</b>
+</p>
+  </div>
+</div>
+<style media="screen">
+    .enlace {
+        border: 2px solid blue;
+        border-radius: 5px;
+        margin-right: 20px;
+        padding: 10px; /* Reducí el padding para un aspecto más compacto */
+        color: black;
+        text-decoration: none; /* Añadí esto para quitar el subrayado predeterminado */
+    }
+
+    body {
+        text-align: left;
+        background-image: url('img/calido.jpg');
+        background-size: cover;
+        color: white;
+        padding: 10px;
+    }
+
+    .galeria {
+      margin-left: 100px;
+      margin-top: 500px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 100px;
+        margin-top: 20px;
+        align-content: center;
+    }
+
+    .galeria img {
+
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+</style>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FRIOS</title>
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <br>
+    <br>
+    <a class="enlace" href="index.html" style="color:black">INICIO</a>
+    <a class="enlace" href="pasatiempos.html" style="color:black">CALIDOS</a>
+    <a class="enlace" href="frios.html" style="color:black">FRIOS</a>
+    <a class="enlace" href="montañas.html" style="color:black">MONTAÑAS</a>
+    <a class="enlace" href="exoticos.html" style="color:black">EXOTICOS</a>
+    <br><br>
+    <h3 media="all">MONTAÑAS</h3>
+    <div class="galeria">
+        <img src="img/exo1.jpeg" alt="Foto 1">
+        <img src="img/exo2.jpeg" alt="Foto 2">
+        <img src="img/exo3.jpg" alt="Foto 3">
+        <!-- Agrega más imágenes según sea necesario -->
+    </div>
+    <script>
+  $(document).ready(function(){
+    $(".galeria-texto").hide(); // Oculta el contenido al cargar la página
+
+    $(".galeria h1").click(function(){
+      // Muestra u oculta el contenido al hacer clic en el título
+      $(this).next(".galeria-texto").slideToggle();
+    });
+  });
+</script>
+    <div class="galeria">
+        <h1><b>Madagascar</b></h1>
+        <h1><b>Maldivas</b></h1>
+        <h1><b>Costa Rica</b></h1>
+
+    </div>
+    <div class="galeria">
+        <b>Sin duda uno de los destinos que más se ha popularizado estos últimos años es Islandia, ya que es un lugar donde se puede ver con gran facilidad las auroras boreales. Pero no todo son auroras, también encontrarás paisajes nevados increíbles, glaciares inmensos y cascadas congeladas. Aunque las bajas temperaturas suelen ser protagonistas en esta época invernal, no hay nada como disfrutar de un buen baño termal.
+
+Islandia es uno de los lugares ideales para visitar en las vacaciones de invierno por su cercanía y fácil acceso. Se puede empezar el viaje desde Reykjavik por tu cuenta u organizado, pero para llegar a los lugares más espectaculares que suelen ser también los más alejados, es recomendable contratar un servicio especializado y con vehículos 4x4, sobretodo en esta época del año.</b>
+        <b>Las islas Galápagos son todavía un destino poco conocido y se encuentran a 1.000km de la costa de Ecuador. Este destino es escogido cada invierno por muchos estadounidenses, sobre todo para recorrerlas en crucero. El snorkel, una de las actividades más practicadas en las Galápagos permite apreciar las maravillas del mundo submarino sin necesidad de experiencia.
+
+¿Pero por qué vale tanto la pena visitar este lugar? Galápagos tienen un clima muy favorable que permite la práctica de las actividades acuáticas todo el año. Además es un sitio muy protegido, donde la fauna marina y terrestre se pueden observar con mucha facilidad. A nosotros nos encantó nadar entre lobos marinos, y si tienes suerte puede que se te acerque algún tiburón inofensivo.</b>
+        <b>Personalmente me encanta el arroz, muchos países tienen varios platos típicos con este cereal. Vietnam es uno de los principales productores de arroz en el mundo y en cuestión de viajes, comienza a destacar frente a la popular y vecina Tailandia.
+
+¿Por qué te proponemos este destino? Porque es el lugar ideal para escapar por completo del frío. Vietnam se puede visitar todo el año, aunque también es uno de los mejores destinos para viajar en navidad por su valor económico y ¿Quién no desea presumir de bronceado a la vuelta?
+
+Existen infinitas posibilidades de visitar este pequeño rincón del mundo. Una idea fuera de lo común es realizar un trek por los campos de arroz de la región de Sapa. La ruta a pie se realiza en el valle de Muong Hoa por impresionantes valles donde las terrazas de arroz aun en la actualidad se cultivan de forma tradicional y crean un maravilloso efecto visual. Indudablemente este es un viaje a realizar al menos una vez en la vida.</b>
+
+    </div>
+    <div class="galeria galeria-texto">
+  <h1><b>Madagascar</b></h1>
+  <div>
+    <b>Sin duda uno de los destinos que más se ha popularizado estos últimos años es Islandia, ya que es un lugar donde se puede ver con gran facilidad las auroras boreales. Pero no todo son auroras, también encontrarás paisajes nevados increíbles, glaciares inmensos y cascadas congeladas. Aunque las bajas temperaturas suelen ser protagonistas en esta época invernal, no hay nada como disfrutar de un buen baño termal.
+  </div>
+</div>
+
+<div class="galeria galeria-texto">
+  <h1><b>Maldivas</b></h1>
+  <div>
+    <b>Sin duda uno de los destinos que más se ha popularizado estos últimos años es Islandia, ya que es un lugar donde se puede ver con gran facilidad las auroras boreales. Pero no todo son auroras, también encontrarás paisajes nevados increíbles, glaciares inmensos y cascadas congeladas. Aunque las bajas temperaturas suelen ser protagonistas en esta época invernal, no hay nada como disfrutar de un buen baño termal.
+  </div>
+</div>
+
+<div class="galeria galeria-texto">
+  <h1><b>Costa Rica</b></h1>
+  <div>
+    <b>Las islas Galápagos son todavía un destino poco conocido y se encuentran a 1.000km de la costa de Ecuador. Este destino es escogido cada invierno por muchos estadounidenses, sobre todo para recorrerlas en crucero. El snorkel, una de las actividades más practicadas en las Galápagos permite apreciar las maravillas del mundo submarino sin necesidad de experiencia.
+  </div>
+</div>
+
+    <style media="screen">
+      .enlace {
+
+        border: 2px solid blue;
+        border-radius: 5px;
+        margin-right: 20px;
+        padding: 30px;
+
+    }
+    body
+    {
+
+        text-align: left;
+        background-image: url('img/exotico.jpg');
+        background-size:cover;
+        color: black;
+        padding: 20px;
+        font-size: 20px;
+        }
+        .galeria {
+          margin-left: 100px;
+          margin-top: 500px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 100px;
+            margin-top: 20px;
+            align-content: center;
+        }
+
+        .galeria img {
+
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+
+</style>
+
+  </body>
+</html>
