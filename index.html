@@ -1,44 +1,64 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>LUGARES</title>
-    <link rel="stylesheet" href="css/estilo.css">
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página de Inicio con Bootstrap</title>
 
-  </head>
-  <body class=".enlace">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Enlace a Bootstrap CSS desde CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <h1 id="titule-principal" >MI PRIMERA PAGINA SUBIDA A GITHUB</h1>
-<br>
-    <a class="enlace" href="index.html" style="color:red">INICIO</a>
-    <a class="enlace" href="pasatiempos.html" style="color:red">CALIDOS</a>
-    <a class="enlace" href="frios.html" style="color:red">FRIOS</a>
-    <a class="enlace" href="montañas.html" style="color:red">MONTAÑAS</a>
-    <a class="enlace" href="exoticos.html" style="color:red">EXOTICOS</a>
+    <!-- Estilos adicionales personalizados -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            text-align: center;
+        }
+        h1 {
+            color: #007bff; /* Color Bootstrap primary */
+        }
+        p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
 
+    <!-- Menú de navegación de Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Mi Página</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <div class="container mt-4">
+        <h1>Bienvenido a Mi Página de Inicio con Bootstrap</h1>
 
-    <style media="screen">
-    .enlace {
-      text-overflow: clip;
-        border: 2px solid blue;
-        border-radius: 5px;
-        margin-right: 20px;
-        padding: 30px;
-    }
+        <p class="lead">Esta es una página web simple creada con HTML, CSS y Bootstrap.</p>
 
-    body {
+        <p>¡Personalízala según tus necesidades!</p>
+    </div>
 
-        text-align: center;
-        background-image: url('img/fondo.jpg');
-        background-size: cover;
-        color: black;
-        padding: 100px;
-    }
-</style>
+    <!-- Scripts de Bootstrap desde CDN (Requiere jQuery y Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  </body>
+</body>
 </html>
