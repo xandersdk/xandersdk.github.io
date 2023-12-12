@@ -1,0 +1,236 @@
+<html>
+<head>
+  <title>Inicio</title>
+  <h1 align = center >FORMULARIO</h1>
+      <style>
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(to bottom, #4CAF50, #f4f4f4); /* Degradado de verde a blanco */
+    }
+
+             #crud-form {
+                 background-color: #fff;
+                 padding: 20px;
+                 border-radius: 8px;
+                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                 margin-bottom: 20px;
+                 width: 300px;
+                 text-align: center;
+             }
+
+             #crud-form label {
+                 display: block;
+                 margin-bottom: 5px;
+                 font-weight: bold;
+                 text-align: left;
+             }
+
+             #crud-form input,
+             #crud-form select {
+                 width: 100%;
+                 padding: 8px;
+                 margin-bottom: 10px;
+                 box-sizing: border-box;
+             }
+
+             #crud-form button {
+                 background-color: #4caf50;
+                 color: white;
+                 padding: 10px;
+                 border: none;
+                 border-radius: 5px;
+                 cursor: pointer;
+             }
+
+             #crud-form button:hover {
+                 background-color: #45a049;
+             }
+
+             table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        /* Estilo para filas impares */
+        table tr:nth-child(odd) {
+            background-color: #859782;
+        }
+
+        /* Estilo para filas pares */
+        table tr:nth-child(even) {
+            background-color: white;
+        }
+         </style>
+</head>
+<body>
+    <form id="crud-form">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+        <br>
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" required>
+        <br>
+        <label for="genero">Género:</label>
+        <select id="genero" name="genero" required>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            <option value="otro">Otro</option>
+        </select>
+        <br>
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" required>
+        <br>
+        <label for="ciudad">Lugar de Residencia:</label>
+        <input type="text" id="ciudad" required>
+        <br>
+        <label for="comentarios">Comentarios:</label>
+        <input type="text" id="comentarios">
+        <br>
+        <button type="button" onclick="crearRegistro()">Crear</button>
+    </form>
+
+    <table border="1" style="margin-top: 20px;">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Género</th>
+                <th>Correo Electrónico</th>
+                <th>Lugar de Residencia</th>
+                <th>Comentarios</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tablaRegistros">
+            <!-- Aquí se agregarán dinámicamente los registros -->
+        </tbody>
+    </table>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+        import { getDatabase, ref, push, onValue, remove, update } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+
+        const firebaseConfig = {
+           apiKey: "AIzaSyBMJsVpnbOwVOiVNbTZScZdet9qlGigDL0",
+           authDomain: "conexion-8ec0d.firebaseapp.com",
+           databaseURL: "https://conexion-8ec0d-default-rtdb.firebaseio.com",
+           projectId: "conexion-8ec0d",
+           storageBucket: "conexion-8ec0d.appspot.com",
+           messagingSenderId: "679910299749",
+           appId: "1:679910299749:web:9800b464879628b4850e8c"
+         };
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        window.crearRegistro = function () {
+            const nombre = document.getElementById("nombre").value;
+            const edad = document.getElementById("edad").value;
+            const genero = document.getElementById("genero").value;
+            const correo = document.getElementById("correo").value;
+            const ciudad = document.getElementById("ciudad").value;
+            const comentarios = document.getElementById("comentarios").value;
+
+            if (nombre.trim() === "" || edad.trim() === "" || genero.trim() === "" || correo.trim() === "" || ciudad.trim() === ""|| comentarios.trim() === "" ) {
+                alert("Todos los campos son obligatorios. Por favor, completa la información.");
+                return;
+            }
+
+            // Validar formato de correo electrónico
+            const correoRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+            if (!correoRegex.test(correo)) {
+                alert("Ingresa un correo de Gmail válido.");
+                return;
+            }
+
+            push(
+                ref(database, 'Cajas'),
+                {
+                    name: nombre,
+                    age: edad,
+                    genero: genero,
+                    correo: correo,
+                    ciudad: ciudad,
+                    comentarios: comentarios
+                }
+            );
+
+            // Limpiar el formulario
+            document.getElementById("nombre").value = "";
+            document.getElementById("edad").value = "";
+            document.getElementById("genero").value = "masculino";
+            document.getElementById("correo").value = "";
+            document.getElementById("ciudad").value = "";
+            document.getElementById("comentarios").value = "";
+        }
+
+        window.editarRegistro = function (key, nombre, edad, genero, correo, ciudad, comentarios) {
+            const nuevoNombre = prompt("Edita el nombre:", nombre);
+            const nuevaEdad = prompt("Edita la edad:", edad);
+            const nuevoGenero = prompt("Edita el género:", genero);
+            const nuevoCorreo = prompt("Edita el correo electrónico:", correo);
+            const nuevaCiudad = prompt("Edita el lugar de residencia:", ciudad);
+            const nuevosComentarios = prompt("Edita los comentarios:", comentarios);
+
+            if (nuevoNombre !== null && nuevaEdad !== null && nuevoGenero !== null && nuevoCorreo !== null && nuevaCiudad !== null && nuevosComentarios !== null) {
+                // Actualizar todo el registro
+                update(ref(database, `Cajas/${key}`), {
+                    name: nuevoNombre,
+                    age: nuevaEdad,
+                    genero: nuevoGenero,
+                    correo: nuevoCorreo,
+                    ciudad: nuevaCiudad,
+                    comentarios: nuevosComentarios
+                });
+            }
+        }
+
+        window.eliminarRegistro = function (key) {
+            const confirmacion = confirm("¿Estás seguro de eliminar este registro?");
+            if (confirmacion) {
+                remove(ref(database, `Cajas/${key}`));
+            }
+        }
+
+        // Actualiza la tabla cuando se cargue la página y cada vez que se modifica la base de datos
+        onValue(ref(database, 'Cajas'), (snapshot) => {
+            const tablaRegistros = document.getElementById('tablaRegistros');
+            tablaRegistros.innerHTML = ''; // Limpiar la tabla antes de actualizar
+
+            const registros = snapshot.val();
+
+            for (const key in registros) {
+                const registro = registros[key];
+                const fila = `<tr>
+                    <td>${registro.name}</td>
+                    <td>${registro.age}</td>
+                    <td>${registro.genero}</td>
+                    <td>${registro.correo}</td>
+                    <td>${registro.ciudad}</td>
+                    <td>${registro.comentarios}</td>
+                    <td>
+                        <button onclick="editarRegistro('${key}', '${registro.name}', '${registro.age}', '${registro.genero}', '${registro.correo}', '${registro.ciudad}', '${registro.comentarios}')">Editar</button>
+                        <button onclick="eliminarRegistro('${key}')">Eliminar</button>
+                    </td>
+                </tr>`;
+                tablaRegistros.innerHTML += fila;
+            }
+        });
+    </script>
+</body>
+</html>
